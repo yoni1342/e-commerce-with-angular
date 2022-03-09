@@ -5,8 +5,11 @@
             <h1>{{product.name | lowercase}}</h1>
             <input [(ngModel)]="product.name" placeholder="name">
             <p>{{product.description}}</p>
-            <p class="card-text" *ngIf="product.price < 10">$ {{product.price}} (*On Discount)</p>
-            <button class="btn btn-outline-primary" for="btnradio2" (click)='onViewDetail(product.id)'>View Detail</button>
+            <p class="card-text" *ngIf="product.price < 10;else noDiscount">$ {{product.price}} (*On Discount)</p>
+            <ng-template #noDiscount> 
+            <p class="card-text">$ {{product.price}}</p>
+            </ng-template>
+            <button class="btn btn-outline-primary" for="btnradio2" (click)='editProduct(product.id)'>View Detail</button>
         </div>    
     </div>
     

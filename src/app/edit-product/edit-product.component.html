@@ -1,0 +1,17 @@
+<div class="space-y-4">  
+    <form action="" #f=ngForm (ngSubmit)="update()">
+        <div>
+            <p>Name</p>
+            <input [(ngModel)]="newProduct.name" placeholder="name" class="border text-gray-500" name="Name" #name="ngModel">
+        </div>
+        <div>
+            <p>Price</p>
+            <input [(ngModel)]="newProduct.price" placeholder="price" class="border text-gray-500" name='price' type="number">
+        </div>
+        <div>
+            <p>Description</p>
+            <textarea [(ngModel)]="newProduct.description" placeholder="price" class="border text-gray-500" name='price'></textarea>
+        </div>
+        <button class="bg-blue-700 w-20 h-10 rounded-full text-white hover:shadow-lg active:shadow-md active:scale-95 transition transform duration-100" type="submit" [disabled]="!f.valid">Submit</button>
+    </form> 
+</div>
