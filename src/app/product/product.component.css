@@ -1,0 +1,19 @@
+.product{
+    border: 1px rgb(238, 232, 232) solid;
+    width: 28rem;
+    -webkit-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 14px -4px rgba(0,0,0,0.75);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+img{
+    object-fit: cover;
+}
+.text{
+    padding: 30px;
+}
+.all{
+    display: flex;
+}
