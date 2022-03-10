@@ -13,6 +13,14 @@ import {menu, HeroIconModule} from 'ng-heroicon';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsService } from './products.service';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -23,10 +31,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditProductComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    EditCustomerComponent,
+    AddCustomerComponent,
+    AddProductComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     NgbModule,
@@ -38,7 +53,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       attachDefaultDimensionsIfNoneFound: true // default 'false'
   })
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

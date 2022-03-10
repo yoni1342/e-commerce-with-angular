@@ -1,0 +1,19 @@
+<div class="flex items-center space-x-8 mt-24">
+    <img src="{{selectedProduct.image}}" alt="" class="shadow-lg" width="700" >
+    <div class="text-center ">
+        <div class="text-lg font-mono">{{selectedProduct.category}}</div>
+        <div class="text-2xl m-4 underline font-bold">{{selectedProduct.title}}</div>
+        <div class="text-md font-light">{{selectedProduct.description}}</div>
+        <p class="text-orange-600 font-extrabold text-xl">birr {{selectedProduct.price}}</p>
+
+        <div class="space-x-10">
+            <button class ='bg-white px-10 py-4 rounded-full shadow-md text-purple-500 my-3 font-bold 
+            hover:shadow-xl active:scale-90 transtion duration-150' (click)='editProduct(selectedProduct.id)'>
+            Edit
+        </button>
+        
+
+        </div>
+    </div>
+
+</div>

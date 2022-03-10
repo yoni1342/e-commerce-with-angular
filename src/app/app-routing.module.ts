@@ -5,6 +5,11 @@ import { ProductComponent } from './product/product.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component'
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { AddProductComponent } from './add-product/add-product.component';
 const routes: Routes = [
   {
     path: 'product/edit/:id',
@@ -20,8 +25,25 @@ const routes: Routes = [
   },
   {
     path: 'product',
-    component: ProductComponent
+    component: ProductListComponent
+  },
+  {
+    path: 'product/detail/:id',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'customer/edit/:id',
+    component: EditCustomerComponent
+  },
+  {
+    path: 'customer/add',
+    component: AddCustomerComponent
+  },
+  {
+    path: 'product/add',
+    component: AddProductComponent
   }
+
 ];
 
 @NgModule({

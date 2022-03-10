@@ -1,0 +1,35 @@
+<div class="h-screen">
+    <p class="text-3xl font-semibold">Add New Customer</p>
+        <form action="" #f=ngForm (ngSubmit)="add()">
+            <div>
+                <p>Title</p>
+                <input type="text" [(ngModel)]="newProduct.title" placeholder="Name" class="border text-gray-500" name="productTitle" #name="ngModel" required minlength="4" appForbiddenName='Yon'>
+    
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors?.['required']">
+                        Name is required.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>Price</p>
+                <input [(ngModel)]="newProduct.price" placeholder="Price" class="border text-gray-500" name='ProductPrice' type="number" min="0">
+            </div>
+            <div>
+                <p>Description</p>
+                <input [(ngModel)]="newProduct.description" placeholder="Description" class="border text-gray-500" name='ProductDescription'/>
+            </div>
+            <div>
+                <p>Category</p>
+                <input [(ngModel)]="newProduct.category" placeholder="Category" class="border text-gray-500" name='ProductCategory'/>
+            </div>
+            <div>
+                <p>Image URL</p>
+                <input type="text" [(ngModel)]="newProduct.image" name = 'Productimage' placeholder="ImageURL">
+            </div>
+            <button class="bg-blue-700 w-20 h-10 rounded-full text-white hover:shadow-lg active:shadow-md active:scale-95 transition transform duration-100 mt-4" type="submit" [disabled]="!f.valid" >ADD</button>
+        </form> 
+    </div>

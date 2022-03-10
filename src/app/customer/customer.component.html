@@ -1,16 +1,28 @@
-<div class="grid grid-cols-4  p-20">
-    <div class="shadow-md w-80 bg-[#323751] text-white flex items-center justify-center flex-col space-y-10 rounded-md p-8 m-2" *ngFor="let customer of customerList" >
-        <img [src]="customer.imageUrl" alt="" class="rounded-full w-40 h-40 object-cover" >
-        <div>
-            <div *ngIf="customer.duration>2;else white">
-                <h1 class="text-xl text-orange-500">Name: {{customer.name}}</h1>
+<div class="">
+    <button class ='bg-orange-500 px-10 py-4 rounded-full shadow-md text-white my-3 font-bold 
+        hover:shadow-xl active:scale-90 transtion duration-150' (click) = 'addCustomer()' >
+        Add New Customer
+    </button>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  p-20">
+            <div class="shadow-md w-80 bg-[#323751] text-white flex items-center justify-center relative flex-col space-y-10 rounded-md p-8 m-2 group" *ngFor="let customer of customerList" >
+                <div class="absolute top-0 left-[90%] text-2xl hidden group-hover:inline-flex cursor-pointer" (click)='deleteCustomer(customer.id)'>X</div>
+                <img [src]="customer.imageUrl" alt="" class="rounded-full w-40 h-40 object-cover" >
+                <div>
+                    <div *ngIf="customer.duration>2;else white">
+                        <h1 class="text-xl text-orange-500">Name: {{customer.name}}</h1>
+                    </div>
+                    <ng-template #white>
+                        <h1 class="text-xl">Name: {{customer.name}}</h1>
+                    </ng-template>  
+                    <p>Age: {{customer.age}}</p>
+                    <p>Location: {{customer.location}}</p>
+                    <div class="space-x-10">
+                        <button class ='bg-white px-10 py-4 rounded-full shadow-md text-purple-500 my-3 font-bold 
+                        hover:shadow-xl active:scale-90 transtion duration-150' (click)='editCustomer(customer.id)'>
+                        Edit
+                    </button>
+                </div>
+            
             </div>
-            <ng-template #white>
-                <h1 class="text-xl">Name: {{customer.name}}</h1>
-            </ng-template>  
-            <p>Age: {{customer.age}}</p>
-            <p>Location: {{customer.location}}</p>
         </div>
-    
-    </div>
 </div>

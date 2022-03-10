@@ -1,16 +1,16 @@
-<div class="all">
-    <div class="product" *ngFor='let product of productList' >
-        <img src = '{{product.imageUrl}}' id = 'nike-img'/>
-        <div class="text">
-            <h1>{{product.name | lowercase}}</h1>
-            <input [(ngModel)]="product.name" placeholder="name">
-            <p>{{product.description}}</p>
-            <p class="card-text" *ngIf="product.price < 10;else noDiscount">$ {{product.price}} (*On Discount)</p>
-            <ng-template #noDiscount> 
-            <p class="card-text">$ {{product.price}}</p>
-            </ng-template>
-            <button class="btn btn-outline-primary" for="btnradio2" (click)='editProduct(product.id)'>View Detail</button>
-        </div>    
+<div class = 'bg-white relative flex flex-col m-3 z-30 p-10 h-100 group'>
+    <p class = 'absolute top-2 right-2 text-sm text-gray-400 font-extralight'>{{category}}</p>
+    <p class="absolute top-0 text-2xl hidden group-hover:inline-block cursor-pointer hover:text-red-500" (click)='deleteProduct(id)'>X</p>
+    <img src="{{image}}" alt="" width="200" height="200">
+    <h4 class ='my-3 '>{{title}}</h4>
+
+    <p class = 'text-xs my-2 line-clamp-2'>{{description}}</p>
+    <div class = 'mb-5'>
+        {{price}}
     </div>
-    
+    <div>
+        <button class = 'mt-auto  p-2 text-sm md:text-sm bg-gradient-to-b from-yellow-200 to-yellow-400 border border-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500
+        active:outline-none' (click)='editProduct(id)'>View Detail</button>
+        
+    </div>
 </div>

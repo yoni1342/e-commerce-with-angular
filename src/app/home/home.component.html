@@ -1,21 +1,25 @@
-<ngb-carousel>
-    <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img src="../../assets/bg1.jpg" alt="Angular Carousel 1">
-        </div>
-        <div class="carousel-caption">
-          <h3>Title Goes Here</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img src="../../assets/bg2.jpg" alt="Angular Carousel 2">
-        </div>
-        <div class="carousel-caption">
-          <h3>Title Goes Here</h3>
-          <p>Consectetur tortor volutpat pretium.</p>
-        </div>
-      </ng-template>
-</ngb-carousel>
-<h1>dksl</h1>
+<div class="relative">
+  <div class='absolute w-full h-44 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20' ></div>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../assets/bg1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/bg2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/bg3.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<app-product-list></app-product-list>

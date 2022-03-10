@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Product, PRODUCTS } from '../product/product.object';
+// import  productData from '../produt.json';
 
 @Component({
   selector: 'app-edit-product',
@@ -22,6 +23,7 @@ export class EditProductComponent implements OnInit {
         for(let product of this.products){
           if(product.id == param['id']){
             this.selectedProduct = product
+            console.log(product)
         }
       }
   }
@@ -29,11 +31,12 @@ export class EditProductComponent implements OnInit {
 
 }
 update(){
-      this.selectedProduct.name = this.newProduct.name;
+      this.selectedProduct.title = this.newProduct.title;
       this.selectedProduct.price = this.newProduct.price;
-      // this.selectedProduct.imageUrl = this.newProduct.imageUrl;
+      this.selectedProduct.image = this.newProduct.image;
       this.selectedProduct.description = this.newProduct.description;
+      this.selectedProduct.category = this.newProduct.category;
       this.newProduct = new Product();
-      this.router.navigateByUrl('product');
+      // this.router.navigateByUrl('/product/detail/ + this.slected');
 }
 }

@@ -1,22 +1,21 @@
+import productData from '../produt.json';
 export class Product{
     id: number;
-    name: string;
+    title: string;
     price: number;
-    imageUrl: string;
     description: string;
+    category: string;
+    image: string;
 
     constructor(){
         this.id = 0;
-        this.name = '';
+        this.title = '';
         this.price = 0;
-        this.imageUrl = '';
+        this.image = '';
         this.description = '';
+        this.category = '';
     }
 
 }
 
-export const PRODUCTS: Product[ ] = [
-    { id: 1, name: 'Nike', imageUrl: '../../assets/nike.jpeg', price:9,  description: "Test "},
-    { id: 2, name: 'Puma', imageUrl: '../../assets/puma.jpg', price:29,  description: "Test "},
-    { id: 3, name: 'Skechers', imageUrl: '../../assets/vans.jpeg' , price:29,  description: "Test "}
-];
+export const PRODUCTS = productData;

@@ -1,17 +1,53 @@
-<div class="space-y-4">  
-    <form action="" #f=ngForm (ngSubmit)="update()">
-        <div>
-            <p>Name</p>
-            <input [(ngModel)]="newProduct.name" placeholder="name" class="border text-gray-500" name="Name" #name="ngModel">
+<div class="space-x-32 h-screen flex justify-center items-center">  
+    <div class=" items-center space-x-8 mt-24 flex flex-col w-[420px]">
+        <img [src]="selectedProduct.image" alt="" class="shadow-lg w-70 h-50 object-fill" >
+        <div class="text-center ">
+            <div class="text-lg font-mono">{{selectedProduct.category}}</div>
+            <div class="text-2xl m-4 underline font-bold">{{selectedProduct.title}}</div>
+            <div class="text-md font-light">{{selectedProduct.description}}</div>
+            <p class="text-orange-600 font-extrabold text-xl">birr {{selectedProduct.price}}</p>
         </div>
-        <div>
-            <p>Price</p>
-            <input [(ngModel)]="newProduct.price" placeholder="price" class="border text-gray-500" name='price' type="number">
-        </div>
-        <div>
-            <p>Description</p>
-            <textarea [(ngModel)]="newProduct.description" placeholder="price" class="border text-gray-500" name='price'></textarea>
-        </div>
-        <button class="bg-blue-700 w-20 h-10 rounded-full text-white hover:shadow-lg active:shadow-md active:scale-95 transition transform duration-100" type="submit" [disabled]="!f.valid">Submit</button>
-    </form> 
+    </div>
+    <div>
+        <p class="text-2xl font-bold text-orange-500">Edit The Product</p>
+        <form action="" #f=ngForm (ngSubmit)="update()">
+            <div>
+                <p>Name</p>
+                <input type="text" [(ngModel)]="newProduct.title" [placeholder]="selectedProduct.title" class="border text-gray-500" name="name" #name="ngModel" required minlength="4" appForbiddenName='Yon'>
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors?.['required']">
+                        Name is required.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>Price</p>
+                <input [(ngModel)]="newProduct.price" [placeholder]="selectedProduct.price" class="border text-gray-500" name='price' type="number" min="0">
+            </div>
+            <div>
+                <p>Description</p>
+                <textarea [(ngModel)]="newProduct.description" [placeholder]="selectedProduct.description" class="border text-gray-500" name='Description'></textarea>
+            </div>
+            <div>
+                <p>Category</p>
+                <input [(ngModel)]="newProduct.category" [placeholder]="selectedProduct.category" class="border text-gray-500" name='Category'/>
+            </div>
+            <div>
+                <p>Image Url</p>
+                <input [(ngModel)]="newProduct.image" placeholder="Image Url" class="border text-gray-500" name='Iamge'/>
+            </div>
+            
+            <div class="space-x-10">
+                    <button class ='bg-white px-10 py-4 rounded-full shadow-md text-purple-500 my-3 font-bold 
+                    hover:shadow-xl active:scale-90 transtion duration-150'type="submit" [disabled]="!f.valid"  >
+                    Edit
+                </button>
+                
+        
+                </div>
+        </form> 
+    </div>
 </div>

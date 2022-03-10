@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,8 +9,10 @@ import {MatIconModule} from '@angular/material/icon';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  addProduct(){
+    this.router.navigateByUrl('/product/add');
+  }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

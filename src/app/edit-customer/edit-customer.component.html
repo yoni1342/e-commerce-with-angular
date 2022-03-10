@@ -1,0 +1,46 @@
+<div class="h-screen">
+    <p class="text-3xl font-semibold">Edit Customer <span class="underline text-orange-500">{{selectedCustomer.name}}</span></p>
+    <div class="space-x-10 flex items-center justify-center">  
+        <div class="items-center flex flex-col space-y-5">   
+            <img [src]="selectedCustomer.imageUrl" alt="" class="rounded-full w-72 h-72 object-cover" >
+            <div class="text-2xl font-light">
+                <p>Name: {{selectedCustomer.name}}</p>
+                <p>Age: {{selectedCustomer.age}}</p>
+                <p>Location: {{selectedCustomer.location}}</p>
+                <p>Duration: {{selectedCustomer.duration}} Year</p>
+            </div>
+        </div>
+        <form action="" #f=ngForm (ngSubmit)="update()">
+            <div>
+                <p>Name</p>
+                <input type="text" [(ngModel)]="newCustomer.name" [placeholder]="selectedCustomer.name" class="border text-gray-500" name="name" #name="ngModel" required minlength="4" appForbiddenName='Yon'>
+    
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                    <div *ngIf="name.errors?.['required']">
+                        Name is required.
+                    </div>
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p>Age</p>
+                <input [(ngModel)]="newCustomer.age" [placeholder]="selectedCustomer.age" class="border text-gray-500" name='price' type="text">
+            </div>
+            <div>
+                <p>location</p>
+                <input [(ngModel)]="newCustomer.location" [placeholder]="selectedCustomer.location" class="border text-gray-500" name='Description'/>
+            </div>
+            <div>
+                <p>Duration</p>
+                <input [(ngModel)]="newCustomer.duration" [placeholder]="selectedCustomer.duration" class="border text-gray-500" name='Category'/>
+            </div>
+            <div>
+                <p>Image URL</p>
+                <input type="text" [(ngModel)]="newCustomer.imageUrl" name = 'Image'>
+            </div>
+            <button class="bg-blue-700 w-20 h-10 rounded-full text-white hover:shadow-lg active:shadow-md active:scale-95 transition transform duration-100" type="submit" [disabled]="!f.valid" >Submit</button>
+        </form> 
+    </div>
+</div>
