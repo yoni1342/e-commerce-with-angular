@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { CartComponent } from './cart/cart.component';
 const routes: Routes = [
   {
     path: 'product/edit/:id',
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'product/add',
     component: AddProductComponent
+  },
+  {
+    path: 'product/cart',
+    component: CartComponent
   }
 
 ];

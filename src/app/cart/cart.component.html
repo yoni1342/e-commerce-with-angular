@@ -1,1 +1,13 @@
-<p>cart works!</p>
+<div class = "grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-56 mb-14 mx-auto">
+    <div *ngFor = 'let product of cartList ' class="space-y-44">
+        <app-product
+                [id] = "product.id"
+                [title] = "product.title"
+                [price] = "product.price"
+                [description] = "product.description"
+                [category] = "product.category"
+                [image] = "product.image"
+                [isCart] = 'true'
+            ></app-product>
+    </div>
+</div>
